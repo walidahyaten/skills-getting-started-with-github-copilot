@@ -20,11 +20,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const spotsLeft = details.max_participants - details.participants.length;
 
+        // Générer la liste des participants
+        let participantsHTML = "";
+        if (details.participants.length > 0) {
+          participantsHTML = `
+            <div class="participants-section" style="margin-top: 10px;">
+              <strong>Participants&nbsp;:</strong>
+              <ul style="margin: 6px 0 0 18px; padding: 0; list-style-type: disc;">
+                ${details.participants.map(p => `<li style="margin-bottom: 2px;">${p}</li>`).join("")}
+              </ul>
+            </div>
+          `;
+        } else {
+          participantsHTML = `
+            <div class="participants-section" style="margin-top: 10px; color: #888;">
+              <strong>Participants&nbsp;:</strong> Aucun inscrit pour le moment.
+            </div>
+          `;
+        }
+
         activityCard.innerHTML = `
           <h4>${name}</h4>
           <p>${details.description}</p>
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
+          ${participantsHTML}
         `;
 
         activitiesList.appendChild(activityCard);
