@@ -24,8 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let participantsHTML = "";
         if (details.participants.length > 0) {
           participantsHTML = `
-
-          <div class="participants-section">
+            <div class="participants-section">
               <strong>Participants&nbsp;:</strong>
               <ul>
                 ${details.participants.map(p => `<li>${p}</li>`).join("")}
