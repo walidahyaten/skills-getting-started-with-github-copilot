@@ -24,16 +24,17 @@ document.addEventListener("DOMContentLoaded", () => {
         let participantsHTML = "";
         if (details.participants.length > 0) {
           participantsHTML = `
-            <div class="participants-section" style="margin-top: 10px;">
+
+          <div class="participants-section">
               <strong>Participants&nbsp;:</strong>
-              <ul style="margin: 6px 0 0 18px; padding: 0; list-style-type: disc;">
-                ${details.participants.map(p => `<li style="margin-bottom: 2px;">${p}</li>`).join("")}
+              <ul>
+                ${details.participants.map(p => `<li>${p}</li>`).join("")}
               </ul>
             </div>
           `;
         } else {
           participantsHTML = `
-            <div class="participants-section" style="margin-top: 10px; color: #888;">
+            <div class="participants-section" style="color: #888;">
               <strong>Participants&nbsp;:</strong> Aucun inscrit pour le moment.
             </div>
           `;
